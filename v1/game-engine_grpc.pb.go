@@ -32,7 +32,7 @@ func NewGameEngineClient(cc grpc.ClientConnInterface) GameEngineClient {
 
 func (c *gameEngineClient) GetSize(ctx context.Context, in *GetSizeRequest, opts ...grpc.CallOption) (*GetSizeResponse, error) {
 	out := new(GetSizeResponse)
-	err := c.cc.Invoke(ctx, "/ms.highscore.v1.GameEngine/GetSize", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ms.gameengine.v1.GameEngine/GetSize", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *gameEngineClient) GetSize(ctx context.Context, in *GetSizeRequest, opts
 
 func (c *gameEngineClient) SetScore(ctx context.Context, in *SetScoreRequest, opts ...grpc.CallOption) (*SetScoreResponse, error) {
 	out := new(SetScoreResponse)
-	err := c.cc.Invoke(ctx, "/ms.highscore.v1.GameEngine/SetScore", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ms.gameengine.v1.GameEngine/SetScore", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _GameEngine_GetSize_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ms.highscore.v1.GameEngine/GetSize",
+		FullMethod: "/ms.gameengine.v1.GameEngine/GetSize",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GameEngineServer).GetSize(ctx, req.(*GetSizeRequest))
@@ -108,7 +108,7 @@ func _GameEngine_SetScore_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/ms.highscore.v1.GameEngine/SetScore",
+		FullMethod: "/ms.gameengine.v1.GameEngine/SetScore",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GameEngineServer).SetScore(ctx, req.(*SetScoreRequest))
@@ -120,7 +120,7 @@ func _GameEngine_SetScore_Handler(srv interface{}, ctx context.Context, dec func
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var GameEngine_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "ms.highscore.v1.GameEngine",
+	ServiceName: "ms.gameengine.v1.GameEngine",
 	HandlerType: (*GameEngineServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
